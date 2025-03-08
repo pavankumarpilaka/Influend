@@ -2,75 +2,75 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 
-const Doctors = () => {
+const Influencers = () => {
   const {speciality} =useParams()
-  const {doctors}=useContext(AppContext)
+  const {Influencers}=useContext(AppContext)
   const [Filterdoc,setFilterdoc]=useState([])
   const navigate=useNavigate()
    
   const applyfilter = () => {
     if(speciality){
-      setFilterdoc(doctors.filter(doc=>doc.speciality===speciality))
+      setFilterdoc(Influencers.filter(doc=>doc.speciality===speciality))
     }else{
-      setFilterdoc(doctors)
+      setFilterdoc(Influencers)
     }
   }
 
   useEffect(()=>{
     applyfilter()
-  },[doctors,speciality])
+  },[Influencers,speciality])
   return (
     <div>
-      <p className='text-gray-600'>Browse Through the Doctors By Speciality</p>
+      <p className='text-gray-600'>Browse Through the Influecers and Experises By Speciality</p>
       <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
       <div className="flex-col gap-4 text-sm text-gray-600">
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "General physician" ? "bg-indigo-100 text-black" : ""
+      speciality === "Travel" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/General physician")}
+    onClick={() => navigate("/Influencers/Travel")}
   >
-    General Physician
+    Travelling
   </p>
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "Gynecologist" ? "bg-indigo-100 text-black" : ""
+      speciality === "Tech" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/Gynecologist")}
+    onClick={() => navigate("/Influencers/Tech")}
   >
-    Gynecologist
+    Technology
   </p>
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "Dermatologist" ? "bg-indigo-100 text-black" : ""
+      speciality === "Finance" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/Dermatologist")}
+    onClick={() => navigate("/Influencers/Finance")}
   >
-    Dermatologist
+    Finance
   </p>
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "Pediatricians" ? "bg-indigo-100 text-black" : ""
+      speciality === "AutoMobiles" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/Pediatricians")}
+    onClick={() => navigate("/Influencers/AutoMobiles")}
   >
-    Pediatrician
+    AutoMobiles
   </p>
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "Neurologist" ? "bg-indigo-100 text-black" : ""
+      speciality === "Fashion" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/Neurologist")}
+    onClick={() => navigate("/Influencers/Fashion")}
   >
-    Neurologist
+    Fashion
   </p>
   <p
     className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer mb-2 ${
-      speciality === "Gastroenterologist" ? "bg-indigo-100 text-black" : ""
+      speciality === "EnterPrenuership" ? "bg-indigo-100 text-black" : ""
     }`}
-    onClick={() => navigate("/doctors/Gastroenterologist")}
+    onClick={() => navigate("/Influencers/EnterPrenuership")}
   >
-    Gastroenterologist
+    Enterprenuership
   </p>
 </div>
 
@@ -78,16 +78,16 @@ const Doctors = () => {
           {
             Filterdoc.map((item,index)=>(
               <div onClick={() => navigate(`/appointment/${item._id}`)} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'>
-                  <img className='bg-blue-50' src={item.image} alt=''/>
-                  <div className='p-4'>
-                      <div className='flex items-center gap-2 text-sm text-center text-green-500'>
-                         <p className='w-2 h-2 rounded-full bg-green-500'></p>
-                         <p>Available</p>
-                      </div>
-                      <p className='text-grey-900 text-lg font-medium'>{item.name}</p>
-                      <p className='text-grey-600 text-sm'>{item.speciality}</p>
-                  </div>
-              </div>
+                <img className='bg-blue-50 h-60 w-full' src={item.image} alt=''/>
+                <div className='p-4'>
+                    <div className='flex items-center gap-2 text-sm text-center text-green-500'>
+                       <p className='w-2 h-2 rounded-full bg-green-500'></p>
+                       <p>Available</p>
+                    </div>
+                    <p className='text-grey-900 text-lg font-medium'>{item.name}</p>
+                    <p className='text-grey-600 text-sm'>{item.speciality}</p>
+                </div>
+            </div>
           ))
           }
         </div>
@@ -96,4 +96,4 @@ const Doctors = () => {
   )
 }
 
-export default Doctors
+export default Influencers

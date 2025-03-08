@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom'
 import Home from './pages/home'
-import Doctors from './pages/Doctors'
 import Login from './pages/Login'
 import Contact from './pages/Contact'
 import Myprofile from './pages/Myprofile'
@@ -10,6 +9,7 @@ import Appointments from './pages/Appointments'
 import Navbar from './components/Navbar'
 import About from './pages/About'
 import Footer from './components/Footer'
+import Influencers from './pages/Influencers'
 
 const App = () => {
   return (
@@ -17,15 +17,15 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/doctors' element={<Doctors/>} />
-        <Route path='/doctors/:speciality' element={<Doctors/>} />
+        <Route path='/Influencers' element={<Influencers/>} />
+        <Route path='/Influencers/:speciality' element={<Influencers/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/my-profile' element={<Myprofile/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/my-appointments' element={<Myappointments/>} />
-        <Route path='/appointment/:docId' element={<Appointments/>} />
+        <Route path='/appointment/:Infid' element={<Appointments/>} />
       </Routes>
       <Footer/>
     </div>

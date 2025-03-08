@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import profile_pic from '../assets/profile_pic.png'
 import dd_icon from '../assets/dropdown_icon.svg'
 import { useState } from 'react'
+import { AppContext } from '../context/AppContext'
 
 
 const Navbar = () => {
   const navigate=useNavigate();
   const [showmenu,setshowmenu]=useState(false);
-  const [token,settoken]=useState(true);
+  const { token, settoken } = useContext(AppContext)
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-grey-400'>
         <img onClick={()=>{navigate('/')}} className='w-44 cursor-pointer' src={logo} alt="Logo" />
@@ -18,8 +19,8 @@ const Navbar = () => {
                 <li className='py-1'>Home</li>
                 <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
-            <NavLink to='/doctors'>
-                <li className='py-1'>Doctors</li>
+            <NavLink to='/Influencers'>
+                <li className='py-1'>Influencers</li>
                 <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
             <a href='#foot'>
